@@ -1,0 +1,24 @@
+.line{
+    margin-top: 3%;
+    margin-bottom: 2%;
+    display: flex;
+    justify-content: space-between;
+}
+.buttons{
+    margin-right: 2%;
+    display: flex;
+    gap: 5%;
+
+}
+.btn{
+    width: 150px;
+    gap: 1%;
+    /*padding: 5%;*/
+    background: #f6f6f6;
+    border-radius: 20px;
+
+}
+.btn:hover{
+    background: black;
+    color: #cccccc;
+}

@@ -1,0 +1,23 @@
+.content{
+
+}
+.container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.mainContent{
+    margin-right: 15%;
+    margin-left: 15%;
+}
+.centerContent{
+
+    display: flex;
+}
+.checkboxes{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 4%;
+
+}

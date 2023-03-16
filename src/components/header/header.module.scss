@@ -1,0 +1,57 @@
+.header{
+    margin-top: 1%;
+    margin-bottom: 1%;
+    display: flex;
+    justify-content: space-between;
+    gap: 5%;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+.logo{
+    width: 94px;
+    height: 20px;
+}
+.list{
+    margin-left: 7%;
+    display: flex;
+    gap: 1%
+}
+.userInfo{
+    margin-right: 6%;
+    display: flex;
+    gap: 10%
+}
+.location{
+    display: flex;
+}
+.price{
+    display: flex;
+}
+.user{
+    display: flex;
+}
+hr{
+    opacity: 20%;
+}
+.locationIcon, .priceIcon, .profileImage{
+    padding-right: 5%;
+    width: 24px;
+    height: 24px;
+}
+.leftside{
+    display: flex;
+}
+
+.discription{
+    margin-top: 6%;
+}
+.btn{
+    width: 110px;
+}
+
+.isActiveLink{
+    font-weight: bold;
+}
+.navList{
+    display: flex;
+}

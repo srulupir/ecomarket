@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, {FC, useState} from "react";
 import styles from "./header.module.scss"
 import logo from '../../assets/logo.png'
 import locationIcon from '../../assets/locationIcon.png'
@@ -6,8 +6,10 @@ import profileImage from '../../assets/profileImage.png'
 import priceIcon from '../../assets/Frame 3.png'
 import {NavLink} from "react-router-dom";
 import cn from "classnames"
+import {Modal} from "../Modal";
 
 export const Header:FC = () => {
+    const [visible, setVisible] = useState(false)
     return (
         <div>
             <div className={styles.header}>
@@ -37,8 +39,12 @@ export const Header:FC = () => {
                         <p className={styles.discription}>1000</p>
                     </div>
                     <div className={styles.user}>
-                        <img className={styles.profileImage} src={profileImage} alt="profile image" />
-                        <p className={styles.discription}>Алексей</p>
+                        <Modal visible={visible} onClose={() => setVisible(false)} />
+                        <button className={styles.user} onClick={() => setVisible(true)}>
+                            <img className={styles.profileImage} src={profileImage} alt="profile image" />
+                            <p className={styles.discription}>Алексей</p>
+                        </button>
+
                     </div>
                 </div>
             </div>

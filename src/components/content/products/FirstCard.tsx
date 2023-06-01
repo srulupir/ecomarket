@@ -9,7 +9,7 @@ export const FirstCard = () => {
                 <div className={styles.textBalance}>
                     <h6>На вашем балансе</h6>
                     <div className={styles.price}>
-                        <img src={priceIcon} alt="price icon"/>
+                        <img className={styles.icon} src={priceIcon} alt="price icon"/>
                         <h6>200</h6>
                     </div>
                 </div>

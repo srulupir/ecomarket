@@ -11,8 +11,8 @@ interface RegistrationWithCodeProps {
 }
 export const RegistrationWithCode = ({onFormSwitch}:RegistrationWithCodeProps) => {
     const validationSchema = yup.object({
-        phone: yup.string().required(),
-        password: yup.string().required(),
+        phone: yup.string().required('Обязательное поле'),
+        password: yup.string().required('Обязательное поле'),
     })
     return (
         <div className={styles.firstBlock}>
@@ -34,7 +34,7 @@ export const RegistrationWithCode = ({onFormSwitch}:RegistrationWithCodeProps) =
                         <label htmlFor="code"></label>
                         <Field className={styles.inputRed} id="code" name="code" placeholder="Код"/>
                         {/*{errors.phone && <div>{errors.phone}</div>}*/}
-                        {errors.phone && <div className={styles.msg}><p className={styles.red}>Введите действительный код</p></div>}
+                        {errors.phone && <div className={styles.error}><p className={styles.red}>Введите действительный код</p></div>}
 
                         <button className={styles.btn_green}>Отправить</button>
                     </Form>

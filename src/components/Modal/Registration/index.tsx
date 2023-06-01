@@ -8,8 +8,8 @@ interface RegistrationProps {
 }
 export const Registration = ({onFormSwitch}:RegistrationProps) => {
     const validationSchema = yup.object({
-        phone: yup.string().required(),
-        password: yup.string().required(),
+        phone: yup.string().required('Обязательное поле'),
+        password: yup.string().required('Обязательное поле'),
     })
     return (
         <div className={styles.firstBlock}>
@@ -27,7 +27,7 @@ export const Registration = ({onFormSwitch}:RegistrationProps) => {
                     <Form>
                         <label htmlFor="phone"></label>
                         <Field className={styles.input1} id="phone" name="phone" placeholder="Телефон"/>
-                        {/*{errors.phone && <div>{errors.phone}</div>}*/}
+                        {errors.phone && <div className={styles.error}>{errors.phone}</div>}
                     </Form>
                 )}
             </Formik>

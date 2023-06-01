@@ -9,8 +9,9 @@ interface AuthProps {
 }
 export const Index = ({onFormSwitch}:AuthProps) => {
     const validationSchema = yup.object({
-        phone: yup.string().required(),
-        password: yup.string().required(),
+        phone: yup.string().required('Обязательное поле')
+            .test('phone', 'Неверный формат номера телефона', value => /^\d{10}$/.test(value)),
+        password: yup.string().required('Обязательное поле')
     })
     return (
         <div className={styles.firstBlock}>
@@ -29,11 +30,11 @@ export const Index = ({onFormSwitch}:AuthProps) => {
                     <Form>
                         <label htmlFor="phone"></label>
                         <Field className={styles.input1} id="phone" name="phone" placeholder="Телефон"/>
-                        {/*{errors.phone && <div>{errors.phone}</div>}*/}
+                        {errors.phone && <div className={styles.error}>{errors.phone}</div>}
 
                         <label htmlFor="password"></label>
                         <Field className={styles.input2} id="password" name="password" placeholder="Пароль"/>
-                        {/*{errors.password && <div>{errors.password}</div>}*/}
+                        {errors.password && <div className={styles.error}>{errors.password}</div>}
 
                         <Button theme='GREEN16'>Войти</Button>
                         {/*<button type="submit">Войти</button>*/}

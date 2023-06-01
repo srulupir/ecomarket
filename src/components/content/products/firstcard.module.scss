@@ -1,3 +1,4 @@
+@import "../../styles/colors";
 .container{
     margin-top: 3%;
     width: 274px;
@@ -23,7 +24,7 @@
 
 }
 .price{
-    margin-left: 4%;
+    margin-left: 10px;
     display: flex;
 }
 .change{
@@ -35,7 +36,7 @@
     width: 226px;
     color: white;
     margin-top: 27%;
-    background: #07C88E;
+    background: $lightGreen;
     border-radius: 7px;
 }
 img{
@@ -44,6 +45,6 @@ img{
 }
 
 .icon{
-    margin-top: 7%;
-    margin-right: 4%;
+    margin-top: 5px;
+    margin-right: 4px;
 }

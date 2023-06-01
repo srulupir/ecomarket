@@ -3,63 +3,64 @@ import styles from './checkbox.module.scss'
 
 export const Checkbox2 = () => {
     const [isCheckedAll, setIsCheckedAll] = useState(false);
-    const [isChecked1, setIsChecked1] = useState(false);
-    const [isChecked2, setIsChecked2] = useState(false);
-    const [isChecked3, setIsChecked3] = useState(false);
+
+    const [checkboxes, setCheckboxes] = useState([
+        { label: 'Одежда', checked: false },
+        { label: 'Обувь', checked: false },
+        { label: 'Аксессуары', checked: false },
+    ]);
+
     const handleSelectAll = () => {
-        setIsCheckedAll(!isCheckedAll);
-        setIsChecked1(!isCheckedAll);
-        setIsChecked2(!isCheckedAll);
-        setIsChecked3(!isCheckedAll);
+        const newIsCheckedAll = !isCheckedAll;
+        setIsCheckedAll(newIsCheckedAll);
+        setCheckboxes((prevCheckboxes) =>
+            prevCheckboxes.map((checkbox) => ({ ...checkbox, checked: newIsCheckedAll }))
+        );
     }
 
-    const handleCheckbox1Change = () => {
-        setIsChecked1(!isChecked1);
-    };
-
-    const handleCheckbox2Change = () => {
-        setIsChecked2(!isChecked2);
-    };
-
-    const handleCheckbox3Change = () => {
-        setIsChecked3(!isChecked3);
+    const handleCheckboxChange = (index:number) => {
+        setCheckboxes((prevCheckboxes) =>
+            prevCheckboxes.map((checkbox, i) =>
+                i === index ? { ...checkbox, checked: !checkbox.checked } : checkbox
+            )
+        );
     };
 
     return (
         <div className={styles.checkbox}>
-            <span>
-                <p className={styles.chooseType}>Тип товара</p>
-                <form>
-                      <div className={styles.form_group}>
-                        <label>
-                            <input onClick={handleSelectAll} type="checkbox" className={styles.real_checkbox}/>
-                            <span className={styles.custom_checkbox}></span>
-                            Выбрать все
-                        </label>
-                    </div>
-                     <div className={styles.form_group}>
-                        <label>
-                            <input type="checkbox" checked={isChecked1} onChange={() => setIsChecked1(!isChecked1)} className={styles.real_checkbox}/>
-                            <span className={styles.custom_checkbox}></span>
-                            Одежда
-                        </label>
-                    </div>
-                       <div className={styles.form_group}>
-                        <label>
-                            <input type="checkbox" checked={isChecked2} onChange={() => setIsChecked2(!isChecked2)} className={styles.real_checkbox}/>
-                            <span className={styles.custom_checkbox}></span>
-                            Обувь
-                        </label>
-                    </div>
-                       <div className={styles.form_group}>
-                        <label>
-                            <input type="checkbox" checked={isChecked3} onChange={() => setIsChecked3(!isChecked3)} className={styles.real_checkbox}/>
-                            <span className={styles.custom_checkbox}></span>
-                            Аксессуары
-                        </label>
-                    </div>
-                </form>
-            </span>
+      <span>
+        <p className={styles.chooseType}>Брэнд</p>
+        <div className={styles.form_group}>
+          <label>
+            <input
+                type="checkbox"
+                checked={isCheckedAll}
+                onChange={handleSelectAll}
+                className={styles.real_checkbox}
+            />
+            <span className={styles.custom_checkbox}></span>
+            Выбрать все
+          </label>
+        </div>
+        <form>
+          <div>
+            {checkboxes.map((checkbox, index) => (
+                <div className={styles.form_group} key={index}>
+                    <label>
+                        <input
+                            type="checkbox"
+                            checked={checkbox.checked}
+                            onChange={() => handleCheckboxChange(index)}
+                            className={styles.real_checkbox}
+                        />
+                        <span className={styles.custom_checkbox}></span>
+                        {checkbox.label}
+                    </label>
+                </div>
+            ))}
+          </div>
+        </form>
+      </span>
         </div>
     )
 }

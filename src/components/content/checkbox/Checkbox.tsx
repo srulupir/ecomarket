@@ -22,19 +22,6 @@ export const Checkbox = () => {
                             Женский
                         </label>
                     </div>
-
-                    {/*<label className={styles.line}>*/}
-                    {/*    <input type="checkbox" className={styles.line_input}/>*/}
-                    {/*    <span className={styles.fake}></span>*/}
-                    {/*    <p>Мужской</p>*/}
-                    {/*</label>*/}
-
-                    {/*<label className={styles.line}>*/}
-                    {/*    <input type="checkbox" className={styles.checkbox_input}/>*/}
-                    {/*    <i></i>*/}
-                    {/*    <p>Женский</p>*/}
-                    {/*</label>*/}
-
                 </form>
             </span>
         </div>

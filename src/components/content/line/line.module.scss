@@ -1,20 +1,19 @@
+@import "../../styles/colors";
 .line{
-    margin-top: 3%;
-    margin-bottom: 2%;
+    margin-top: 25px;
+    margin-bottom: 15px;
     display: flex;
     justify-content: space-between;
 }
 .buttons{
-    margin-right: 2%;
+    margin-right: 15px;
     display: flex;
     gap: 5%;
-
 }
 .btn{
     width: 150px;
     gap: 1%;
-    /*padding: 5%;*/
-    background: #f6f6f6;
+    background: $darkWhite;
     border-radius: 20px;
 
 }
